@@ -1,0 +1,43 @@
+* TTL
+```
+;============================================= 
+; Filename    : SingleSSH.ttl 
+; Description : SSH Auto login 
+; Author      : Buravo
+; Created     : 2016/10/06 
+; modified    : 
+;============================================== 
+;; 接続先ホスト／ユーザ名／パスワード設定 
+HOST_ADDR = '192.168.33.10' 
+USER_NAME = 'root' 
+PASSWORD = 'vagrant'
+;============================================== 
+;; ①コマンド組立て 
+COMMAND = HOST_ADDR
+strconcat COMMAND ':22 /ssh /2 /auth=password /user=' 
+strconcat COMMAND USER_NAME 
+strconcat COMMAND ' /passwd=' 
+strconcat COMMAND PASSWORD
+ 
+;; ②接続 
+connect COMMAND
+
+; 日時を取得
+gettime CURRENT_TIME "%Y%m%d-%H%M%S"
+; ホスト名を取得
+gethostname HOST_NAME
+; ログファイル名
+sprintf2 FILE_NAME 'ttl_%s_%s.log' HOST_NAME CURRENT_TIME
+; カレントディレクトリを変更する
+changedir 'C:\Users\buravo46\ttl_logs'
+
+; ログ開始
+logopen FILE_NAME 0 0 0 1
+
+;; ③マクロ終了 
+end
+```
+
+* 参考サイト
+
+[TeraTermマクロサンプル－SSH自動ログイン（接続情報固定版）](http://www.j-oosk.com/teraterm/macro/180/)
