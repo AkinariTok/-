@@ -1,0 +1,5 @@
+ｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰ
+SYNFloodAttack ツール（ソース）
+ｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰｰ-------------
+
+https://github.com/thelinuxchoice/synflood
